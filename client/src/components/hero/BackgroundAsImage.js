@@ -89,7 +89,7 @@ export default () => {
     <Container>
       <OpacityOverlay />
       <HeroContainer>
-        <StyledHeader links={navLinks} />
+        <StyledHeader links={navLinks} language='hello'/>
         <TwoColumn>
           <LeftColumn>
             <Notification>We will soon  launch operations across Europe.</Notification>

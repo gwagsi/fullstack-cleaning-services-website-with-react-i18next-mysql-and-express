@@ -9,6 +9,8 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/logo.svg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import i18n from "./../../services/i18n";
+import { useTranslation } from 'react-i18next';
 
 const Header = tw.header`
   flex justify-between items-center
@@ -55,8 +57,17 @@ export const MobileNavLinks = motion.custom(styled.div`
 export const DesktopNavLinks = tw.nav`
   hidden lg:flex flex-1 justify-between items-center
 `;
+export const LangaugeSwitcher = tw.button`
+   z-20 focus:outline-none hocus:text-primary-500 transition duration-300
+`;
 
-export default ({ roundedHeaderButton = false, logoLink, links, className, collapseBreakpointClass = "lg" }) => {
+export default ({
+  roundedHeaderButton = false,
+  logoLink,
+  links,
+  className,
+  collapseBreakpointClass = "lg",
+}) => {
   /*
    * This header component accepts an optionals "links" prop that specifies the links to render in the navbar.
    * This links props should be an array of "NavLinks" components which is exported from this file.
@@ -70,46 +81,91 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
-  const defaultLinks = [
-    <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
-    </NavLinks>
-  ];
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
-  const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
+  const collapseBreakpointCss =
+    collapseBreakPointCssMap[collapseBreakpointClass];
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
       SALDEMY
     </LogoLink>
   );
+  const { t } = useTranslation();
 
   logoLink = logoLink || defaultLogoLink;
-  links = links || defaultLinks;
+  links = links;
 
   return (
     <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
         {links}
+
+        <LangaugeSwitcher>
+        <div class="switch-lang">
+          <div class="current-lang">
+            <img
+              class="lang-flag"
+              src="https://cdn2.iconfinder.com/data/icons/leto-blue-online-education/64/__language_courses_translate_speak-512.png"
+            />
+            {t('langauge', 'ENGLISH')}
+          </div>
+
+          <div class="lang-dropdown">          <div onClick={() => changeLanguage("en")} class="selecting-lang">
+            <img
+              class="lang-flag"
+              src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_United_Kingdom.png"
+            />
+            <p class="lang-text">English</p>
+          </div>
+            <div onClick={() => changeLanguage("es")} class="selecting-lang">
+              <img
+                class="lang-flag"
+                src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_Spain.png"
+              />
+               <p class="lang-text">Español</p>
+            </div>
+            <div onClick={() => changeLanguage("fr")} class="selecting-lang">
+              <img
+                class="lang-flag"
+                src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_France.png"
+              />
+               <p class="lang-text">Français</p>
+            </div>
+          </div>
+          </div>
+      
+        </LangaugeSwitcher>
       </DesktopNavLinks>
 
-      <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
+      <MobileNavLinksContainer
+        css={collapseBreakpointCss.mobileNavLinksContainer}
+      >
         {logoLink}
-        <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakpointCss.mobileNavLinks}>
+        <MobileNavLinks
+          initial={{ x: "150%", display: "none" }}
+          animate={animation}
+          css={collapseBreakpointCss.mobileNavLinks}
+        >
           {links}
+          <button onClick={() => changeLanguage("fr")}>fr</button>
+          <button onClick={() => changeLanguage("en")}>en</button>
+          <button onClick={() => changeLanguage("es")}>es</button>
         </MobileNavLinks>
-        <NavToggle onClick={toggleNavbar} className={showNavLinks ? "open" : "closed"}>
-          {showNavLinks ? <CloseIcon tw="w-6 h-6" /> : <MenuIcon tw="w-6 h-6" />}
+        <NavToggle
+          onClick={toggleNavbar}
+          className={showNavLinks ? "open" : "closed"}
+        >
+          {showNavLinks ? (
+            <CloseIcon tw="w-6 h-6" />
+          ) : (
+            <MenuIcon tw="w-6 h-6" />
+          )}
         </NavToggle>
       </MobileNavLinksContainer>
     </Header>
@@ -126,21 +182,21 @@ const collapseBreakPointCssMap = {
   sm: {
     mobileNavLinks: tw`sm:hidden`,
     desktopNavLinks: tw`sm:flex`,
-    mobileNavLinksContainer: tw`sm:hidden`
+    mobileNavLinksContainer: tw`sm:hidden`,
   },
   md: {
     mobileNavLinks: tw`md:hidden`,
     desktopNavLinks: tw`md:flex`,
-    mobileNavLinksContainer: tw`md:hidden`
+    mobileNavLinksContainer: tw`md:hidden`,
   },
   lg: {
     mobileNavLinks: tw`lg:hidden`,
     desktopNavLinks: tw`lg:flex`,
-    mobileNavLinksContainer: tw`lg:hidden`
+    mobileNavLinksContainer: tw`lg:hidden`,
   },
   xl: {
     mobileNavLinks: tw`lg:hidden`,
     desktopNavLinks: tw`lg:flex`,
-    mobileNavLinksContainer: tw`lg:hidden`
-  }
+    mobileNavLinksContainer: tw`lg:hidden`,
+  },
 };

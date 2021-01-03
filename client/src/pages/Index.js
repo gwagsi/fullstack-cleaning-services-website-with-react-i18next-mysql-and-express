@@ -19,12 +19,19 @@ import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
 
+import { useTranslation } from 'react-i18next';
+
+
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
+
 export default () => {
+  const { t } = useTranslation();
   return (
     <AnimationRevealPage>
       <Hero />
-
+      <div>
+      <p>{t('welcome', 'Hello there')}</p>
+    </div>
       <div className="container">
         <div className="row d-flex no-gutters">
           <div className="col-md-6 d-flex">
