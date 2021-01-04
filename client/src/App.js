@@ -134,7 +134,7 @@ export default function App() {
         <Route path="/pricing">
           <PricingPage />
         </Route>
-        <Route path="/about-us">
+        <Route path="/about">
           <AboutUsPage />
         </Route>
         <Route path="/contact">

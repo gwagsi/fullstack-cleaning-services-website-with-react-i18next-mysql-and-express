@@ -29,9 +29,7 @@ export default () => {
   return (
     <AnimationRevealPage>
       <Hero />
-      <div>
-      <p>{t('welcome', 'Hello there')}</p>
-    </div>
+      
       <div className="container">
         <div className="row d-flex no-gutters">
           <div className="col-md-6 d-flex">
