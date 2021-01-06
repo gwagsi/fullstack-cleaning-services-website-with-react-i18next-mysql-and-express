@@ -4,7 +4,8 @@
   "description": "backend for saldemy",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start:dev": "nodemon ./bin/www"
   },
   "author": "Gwagsi Glenn",
   "license": "ISC",
@@ -12,6 +13,9 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
   }
 }

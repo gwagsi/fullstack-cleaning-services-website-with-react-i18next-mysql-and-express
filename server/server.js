@@ -1,6 +1,7 @@
 const express = require('express'),
   app = express(),
   cors = require('cors'),
+  logger = require('morgan'),
   bodyParser = require('body-parser');
 
 // setup database

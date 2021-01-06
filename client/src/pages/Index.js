@@ -18,8 +18,7 @@ import FAQ from "components/faqs/SimpleWithSideImage.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
-
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next'
 
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
@@ -39,26 +38,26 @@ export default () => {
             >
               <div className="time-open-wrap">
                 <div className="desc p-4">
-                  <h2>Business Hours</h2>
+                  <h2>{t('bis-hours', 'Business Hours')}</h2>
                   <div className="opening-hours">
-                    <h4>Opening Days:</h4>
+                    <h4>{t('O-days', 'Opening Days')}:</h4>
                     <p className="pl-3">
                       <span>
-                        <strong>Monday – Friday:</strong> 9am to 20 pm
+                        <strong>{t('mon-fri', ' Monday – Friday')}:</strong> {t('9to2', ' 9am to 20 pm')}
                       </span>
                       <span>
-                        <strong>Saturday :</strong> 9am to 17 pm
+                        <strong>{t('saturday', 'Saturday ')} :</strong> {t('9to17', ' 9am to 17 pm')}
                       </span>
                     </p>
-                    <h4>Vacations:</h4>
+                    <h4>{t('vacation', ' Vacations')}:</h4>
                     <p className="pl-3">
-                      <span>All Sunday Days</span>
-                      <span>All Official Holidays</span>
+                      <span>{t('allsubday', 'All Sunday Days ')}</span>
+                      <span>{t('alloff', 'All Official Holidays ')}</span>
                     </p>
                   </div>
                 </div>
                 <div className="desc p-4 bg-secondary">
-                  <h3 className="heading">For Emergency Cases</h3>
+                  <h3 className="heading">{t('emergency', ' For Emergency Cases')}</h3>
                   <span className="phone">(+01) 123 456 7890</span>
                 </div>
               </div>
@@ -67,16 +66,12 @@ export default () => {
           <div className="col-md-6 pl-md-5 pt-md-5">
             <div className="row justify-content-start py-5">
               <div className="col-md-12 heading-section ">
-                <span className="subheading">Welcome to Cleaning Company</span>
-                <h2 className="mb-4">Let's make you fresher than ever</h2>
+                <span className="subheading">{t('welco', 'Welcome to SALDEMY ')}</span>
+                <h2 className="mb-4">{t('let-make', 'Let\'s make you fresher than ever ')}</h2>
                 <p>
-                  We know the preferences of every homeowner or Business will differ, which
-                  is why we proudly offer customizable cleaning programs. No
-                  matter whether you need us to come by before a special event,
-                  spruce up your home before the holidays, or even clean before
-                  or after moving out, we can help. With the use of our
-                  eco-friendly cleaning products, our trained cleaning
-                  professionals deep-clean your property from top to bottom.
+                {t('ind-desc', 'We know the preferences of every homeowner or Business  ')}
+               
+                 
                 </p>
               </div>
             </div>
@@ -90,9 +85,10 @@ export default () => {
                   </div>
                   <div className="text">
                     <span>
-                      Years of <br />
-                      Experienced
-                    </span>
+                      <Trans i18nKey="yrsexp"> Years of
+                   <br />
+                   Experienced </Trans>
+                     </span>
                   </div>
                 </div>
               </div>
@@ -105,8 +101,8 @@ export default () => {
                   </div>
                   <div className="text">
                     <span>
-                      Happy <br />
-                      Customers
+                     <Trans i18nKey="hppcus">Happy <br />
+                      Customers</Trans> 
                     </span>
                   </div>
                 </div>
@@ -120,8 +116,9 @@ export default () => {
                   </div>
                   <div className="text">
                     <span>
-                      Building <br />
-                      Cleaned
+                      <Trans i18nKey="bldcleaned"> Building <br />
+                      Cleaned</Trans>
+                     
                     </span>
                   </div>
                 </div>
@@ -137,7 +134,7 @@ export default () => {
       subheading="Testimonials"
       heading={
         <>
-          Our Clients <span tw="text-primary-500">Love Us.</span>
+         {t('ourclients','Our Clients')}  <span tw="text-primary-500"> {t('love','Love Us')} .</span>
         </>
       }
       description="Here are what some of our amazing customers are saying about our services. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -172,7 +169,7 @@ export default () => {
       subheading="FAQs"
       heading={
         <>
-          Do you have <span tw="text-primary-500">Questions ?</span>
+         {t('doyouknow','Do you have')}  <span tw="text-primary-500"> {t('questions','Questions')}  ?</span>
         </>
       }
     />
