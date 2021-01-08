@@ -17,12 +17,16 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
-      post_id: {
-        type: Sequelize.INTEGER
+      postId: {
+        type: Sequelize.INTEGER,
+        onDelete : 'CASCADE',
+        references : {
+            model : 'Post',
+            key : 'id',
+            as : 'userId'
+        }
       },
-      comments_id: {
-        type: Sequelize.INTEGER
-      },
+    
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
