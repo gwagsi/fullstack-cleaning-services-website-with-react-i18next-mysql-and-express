@@ -4,13 +4,7 @@ const express = require('express'),
   logger = require('morgan'),
   bodyParser = require('body-parser');
 
-// setup database
-db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'cleaning'
-  })
+
 // make server object that contain port property and the value for our server.
 var server = {
   port: 4040
@@ -19,6 +13,11 @@ var server = {
 // use the modules
 app.use(cors())
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : false}));
+
+require('./routes')(app);
 
 // starting the server
 app.listen( server.port , () => console.log(`Server started, listening port: ${server.port}`));
+
+
