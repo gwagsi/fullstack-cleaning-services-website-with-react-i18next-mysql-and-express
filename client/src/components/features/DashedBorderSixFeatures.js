@@ -15,6 +15,7 @@ import CustomizeIconImage from "../../images/customize-icon.svg";
 import FastIconImage from "../../images/fast-icon.svg";
 import FloorIconImage from "../../images/clean-floor.svg";
 import SimpleIconImage from "../../images/simple-icon.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 
@@ -73,12 +74,13 @@ export default () => {
       title: "Others",
     },
   ];
+  const { t } = useTranslation();
 
   return (
     <Container>
       <ThreeColumnContainer>
         <Heading>
-          Our Professional <span tw="text-primary-500">Services</span>
+        {t('ourProfessional', 'Our Professional')}   <span tw="text-primary-500">{t('services', 'Services')}</span>
         </Heading>
         {cards.map((card, i) => (
           <Column key={i}>
@@ -90,7 +92,7 @@ export default () => {
                 <span className="title">{card.title || "Fully Secure"}</span>
                 <p className="description">
                   {card.description ||
-                    "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud. Sic Semper Tyrannis. Neoas Calie artel."}
+                    t(' servicesDescrib', 'Describtion for the particular service appears here') }
                 </p>
               </span>
             </Card>

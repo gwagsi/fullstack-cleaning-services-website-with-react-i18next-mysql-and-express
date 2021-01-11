@@ -11,11 +11,8 @@ module.exports = {
   },
   async create(req, res) {
     try {
-      const userCollection = await User.create({
-        email: req.body.email,
-        userName: req.body.userName,
-        password: req.body.password
-      })
+      const userCollection = await User.create(req.body
+      )
       res.status(201).send(userCollection)
     } catch (e) {
       console.log(e)
