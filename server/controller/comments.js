@@ -1,5 +1,5 @@
-const Post = require("../models").Post
-const User = require("../models").user
+const {Post, Comments }= require("../models").Post
+
 module.exports = {
   
   async createComment(req, res) {

@@ -1,8 +1,8 @@
-const Reviews = require("../models").Reviews
+const {Reviews} = require("../models")
 module.exports = {
   async getAllReviews(req, res) {
     try {
-      const reviewsCollection = await Reviews.find({})
+      const reviewsCollection = await Reviews.findAll({})
       res.status(201).send(reviewsCollection)
     } catch (e) {
       console.log(e)

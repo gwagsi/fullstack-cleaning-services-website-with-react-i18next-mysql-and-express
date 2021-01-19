@@ -1,13 +1,12 @@
-const Post = require("../models").Post
-const User = require("../models").user
+const {Post, User }= require("../models")
 module.exports = {
   async getAllPostsOfUser(req, res) {
     try {
-      const userCollection = await User.find({
+      const userCollection = await User.findAll({
         id: req.params.userId,
       })
       if (userCollection) {
-        const postCollection = await Post.find({
+        const postCollection = await Post.findAll({
           userId: req.params.userId,
         })
         res.status(201).send(postCollection)
@@ -30,7 +29,7 @@ module.exports = {
   },
   async update(req, res) {
     try {
-      const postCollection = await Post.find({
+      const postCollection = await Post.findOne({
         id: req.params.postId,
       })
       if (postCollection) {

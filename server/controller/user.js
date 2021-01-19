@@ -1,11 +1,12 @@
-const User = require("../models").User
+const { User } = require("../models");
 module.exports = {
   async getAllUsers(req, res) {
     try {
-      const userCollection = await User.find({})
+
+      const userCollection = await User.findAll();
       res.status(201).send(userCollection)
     } catch (e) {
-      console.log(e)
+      console.log(e);
       res.status(500).send(e)
     }
   },
@@ -21,7 +22,7 @@ module.exports = {
   },
   async update(req, res) {
     try {
-      const userCollection = await User.find({
+      const userCollection = await User.findOne({
         id: req.params.userId,
       })
       if (userCollection) {
