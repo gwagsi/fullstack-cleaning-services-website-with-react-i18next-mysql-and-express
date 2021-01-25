@@ -55,33 +55,33 @@ export default () => {
             <ColumnHeading>Main</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Blog</Link>
+                <Link href="/blog">Blog</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">FAQs</Link>
+                <Link href="/fags">FAQs</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Support</Link>
+                <Link href="/services">Services</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">About Us</Link>
+                <Link href="/about">About Us</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Product</ColumnHeading>
+            <ColumnHeading>Business</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Log In</Link>
+                <Link href="/login">Log In</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Personal</Link>
+                <Link href="/contact">Personal</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Business</Link>
+                <Link href="/portfolio">Business</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Team</Link>
+                <Link href="/blog">Blog</Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -89,16 +89,16 @@ export default () => {
             <ColumnHeading>Press</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Logos</Link>
+                <Link href="/testimonials">Testimonials</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Events</Link>
+                <Link href="/pricing">Pricing</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Stories</Link>
+                <Link href="/blog">Blog</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Office</Link>
+                <Link href="/about">About Us</Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -106,7 +106,7 @@ export default () => {
             <ColumnHeading>Legal</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">GDPR</Link>
+                <Link href="/faqs">FAQs</Link>
               </LinkListItem>
               <LinkListItem>
                 <Link href="#">Privacy Policy</Link>

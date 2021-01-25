@@ -18,6 +18,15 @@ module.exports = {
       res.status(500).send(e)
     }
   },
+  async getAllPosts(req, res) {
+    try {
+      const post = await Post.findAll({})
+      res.status(201).send(post)
+    } catch (e) {
+      console.log(e)
+      res.status(500).send(e)
+    }
+  },
   async createPost(req, res) {
     try {
       const post = await Post.create(req.body)

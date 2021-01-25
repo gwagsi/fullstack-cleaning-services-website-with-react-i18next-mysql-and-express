@@ -17,11 +17,12 @@ module.exports = (app) => {
     app.put('/api/user/:userId',userController.update);
 
     //Post Route
-    app.get('/api/:userId/posts',postController.getAllPostsOfUser);
+    app.get('/api/posts/:userId',postController.getAllPostsOfUser);
+    app.get('/api/post',postController.getAllPosts);
 
     app.post('/api/post/create',postController.createPost);
 
-    app.put('/api/:postId',postController.update);
+    app.put('/api/post/:postId',postController.update);
 
     //Reviews Route
 

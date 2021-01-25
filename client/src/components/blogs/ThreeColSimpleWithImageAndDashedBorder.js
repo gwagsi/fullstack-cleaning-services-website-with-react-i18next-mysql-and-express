@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import PostDataService from "../../services/post";
 import tw from "twin.macro";
 import styled from "styled-components";
 import {css} from "styled-components/macro"; //eslint-disable-line
@@ -51,6 +52,23 @@ export default ({
   description = "Some amazing blog posts that are written by even more amazing people.",
 
 }) => {
+
+
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    retrievePosts();
+  }, []);
+
+  const retrievePosts = () => {
+    PostDataService.getAll()
+      .then(response => {
+        setPosts(response.data);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
   const blogPosts = [
     {
       imageSrc:
@@ -91,7 +109,7 @@ export default ({
           <HeadingDescription>{description}</HeadingDescription>
         </HeadingInfoContainer>
         <ThreeColumn>
-          {blogPosts.map((post, index) => (
+          {posts.map((post, index) => (
             <Column key={index}>
               <Card>
                 <Image imageSrc={post.imageSrc} />

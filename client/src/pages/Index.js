@@ -131,13 +131,14 @@ export default () => {
     <MainFeature2 />
     <Portfolio />
     <Testimonial
-      subheading="Testimonials"
+      subheading={<> {t('testimonials','Testimonials')}
+      </>}
       heading={
         <>
          {t('ourclients','Our Clients')}  <span tw="text-primary-500"> {t('love','Love Us')} .</span>
         </>
       }
-      description="Here are what some of our amazing customers are saying about our services. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      description={<> {t('tesdes','Here are what some of our amazing customers are saying about our services. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')} </>}
       testimonials={[
         {
           imageSrc:
@@ -147,7 +148,7 @@ export default () => {
           quote:
             "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
           customerName: "Charlotte Hale",
-          customerTitle: "CEO, Tesla Inc."
+          customerTitle: <{"CEO, Tesla Inc."}
         },
         {
           imageSrc:
