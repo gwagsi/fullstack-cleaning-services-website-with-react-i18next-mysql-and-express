@@ -24,7 +24,7 @@ import { Trans, useTranslation } from 'react-i18next'
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
 export default () => {
-  const { t } = useTranslation();
+  const { t , i18n} = useTranslation();
   return (
     <AnimationRevealPage>
       <Hero />
@@ -85,9 +85,9 @@ export default () => {
                   </div>
                   <div className="text">
                     <span>
-                      <Trans i18nKey="yrsexp"> Years of
+                    {t('yrsof','Years of')} 
                    <br />
-                   Experienced </Trans>
+                  {t(' Experienced ',' Experienced ')}
                      </span>
                   </div>
                 </div>
@@ -101,8 +101,8 @@ export default () => {
                   </div>
                   <div className="text">
                     <span>
-                     <Trans i18nKey="hppcus">Happy <br />
-                      Customers</Trans> 
+                    {t('Happy','Happy')}   <br />
+                      {t('Customers ','Customers ')}
                     </span>
                   </div>
                 </div>
@@ -116,8 +116,8 @@ export default () => {
                   </div>
                   <div className="text">
                     <span>
-                      <Trans i18nKey="bldcleaned"> Building <br />
-                      Cleaned</Trans>
+                     {t('Building','Building')}  <br />
+                       {t('Cleaned','Cleaned')}
                      
                     </span>
                   </div>
@@ -146,9 +146,10 @@ export default () => {
           profileImageSrc:
             "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
           quote:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+          <>{t('quote1','Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.')}</>
+            ,
           customerName: "Charlotte Hale",
-          customerTitle: <{"CEO, Tesla Inc."}
+          customerTitle: <>{t("postition1","CEO, Tesla Inc.")}</>
         },
         {
           imageSrc:
@@ -156,9 +157,10 @@ export default () => {
           profileImageSrc:
             "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=512&h=512&q=80",
           quote:
-            "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+        <>{t('quote2','Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.')} </> 
+            ,
           customerName: "Adam Cuppy",
-          customerTitle: "Founder, Nestle"
+          customerTitle:<> {t("position2","Founder, Nestle")}</>
         }
       ]}
       textOnLeft={true}

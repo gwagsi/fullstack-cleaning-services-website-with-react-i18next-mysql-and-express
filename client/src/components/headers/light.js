@@ -10,7 +10,7 @@ import logo from "../../images/logo.svg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import i18n from "./../../services/i18n";
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next'
 
 const Header = tw.header`
   flex justify-between items-center
@@ -104,38 +104,40 @@ export default ({
     <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
-        {links}
+        
+    {links}
+  
 
         <LangaugeSwitcher>
-        <div class="switch-lang">
-          <div class="current-lang">
+        <div className="switch-lang">
+          <div className="current-lang">
             <img
-              class="lang-flag"
+              className="lang-flag"
               src="https://cdn2.iconfinder.com/data/icons/leto-blue-online-education/64/__language_courses_translate_speak-512.png"
             />
             {t('langauge', 'ENGLISH')}
           </div>
 
-          <div class="lang-dropdown">          <div onClick={() => changeLanguage("en")} class="selecting-lang">
+          <div className="lang-dropdown">          <div onClick={() => changeLanguage("en")} className="selecting-lang">
             <img
-              class="lang-flag"
+              className="lang-flag"
               src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_United_Kingdom.png"
             />
-            <p class="lang-text">English</p>
+            <p className="lang-text">English</p>
           </div>
-            <div onClick={() => changeLanguage("es")} class="selecting-lang">
+            <div onClick={() => changeLanguage("es")} className="selecting-lang">
               <img
-                class="lang-flag"
+                className="lang-flag"
                 src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_Spain.png"
               />
-               <p class="lang-text">Español</p>
+               <p className="lang-text">Español</p>
             </div>
-            <div onClick={() => changeLanguage("fr")} class="selecting-lang">
+            <div onClick={() => changeLanguage("fr")} className="selecting-lang">
               <img
-                class="lang-flag"
+                className="lang-flag"
                 src="https://cdn2.iconfinder.com/data/icons/world-flag-icons/128/Flag_of_France.png"
               />
-               <p class="lang-text">Français</p>
+               <p className="lang-text">Français</p>
             </div>
           </div>
           </div>
@@ -153,9 +155,13 @@ export default ({
           css={collapseBreakpointCss.mobileNavLinks}
         >
           {links}
-          <button onClick={() => changeLanguage("fr")}>fr</button>
-          <button onClick={() => changeLanguage("en")}>en</button>
-          <button onClick={() => changeLanguage("es")}>es</button>
+          <button onClick={() => changeLanguage("fr")}>FR</button>
+          <br/>
+          <br/>
+          <button onClick={() => changeLanguage("en")}>EN</button>
+          <br/>
+          <br/>
+          <button onClick={() => changeLanguage("es")}>ES</button>
         </MobileNavLinks>
         <NavToggle
           onClick={toggleNavbar}

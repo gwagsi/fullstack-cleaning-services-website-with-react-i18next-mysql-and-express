@@ -2,8 +2,9 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { Trans, useTranslation } from 'react-i18next'
 
-import Header, { LogoLink, NavLinks, NavLink as NavLinkBase } from "../headers/light.js";
+import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 
 const StyledHeader = styled(Header)`
   ${tw`justify-between`}
@@ -12,9 +13,6 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const NavLink = tw(NavLinkBase)`
-  sm:text-sm sm:mx-6
-`;
 
 const Container = tw.div`relative -mx-8 -mt-8`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row bg-gray-100`;
@@ -42,14 +40,7 @@ const Actions = styled.div`
 `;
 
 export default ({
-  navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="#">About</NavLink>
-      <NavLink href="#">Blog</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#">Login</NavLink>
-    </NavLinks>
-  ],
+ 
   heading = (
     <>
       Find Perfect Hotels
@@ -64,6 +55,33 @@ export default ({
   secondaryActionUrl = "#",
   secondaryActionText = "Search Hotels"
 }) => {
+  const { t } = useTranslation();
+  const navLinks = [
+    <NavLinks key={1}>
+      <NavLink href="/">
+       {t('home','Home')}
+      </NavLink>
+      <NavLink href="/about">
+      {t('about1','About')}
+      
+      </NavLink>
+      <NavLink href="/services">
+      {t('services1','Services')}  
+      </NavLink>
+      
+      <NavLink href="/contact-us">
+      {t('contact','Contact Us')}
+      </NavLink>
+      <NavLink href="/blog">
+      {t('blog','Blog')}
+      </NavLink>
+    </NavLinks>,
+    <NavLinks key={2}>
+      <PrimaryLink href="/contact-us">
+      {t('hireUs','Hire Us')} 
+      </PrimaryLink>
+    </NavLinks>
+  ];
   return (
     <Container>
       <TwoColumn>

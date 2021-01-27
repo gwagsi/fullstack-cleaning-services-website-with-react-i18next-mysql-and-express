@@ -7,6 +7,7 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { ReactComponent as PlusIcon } from "feather-icons/dist/icons/plus.svg";
 import { ReactComponent as MinusIcon } from "feather-icons/dist/icons/minus.svg";
 import cleanerlady from "../../images/cleanerlady.jpg"
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20`;
@@ -40,37 +41,38 @@ const Answer = motion.custom(tw.dd`pointer-events-none text-sm sm:text-base lead
 
 export default ({
   subheading = "",
-  heading = "Questions",
-  description = "Here are some frequently asked questions about our hotels from our loving customers. Should you have any other questions, feel free to reach out via the contact form below.",
-  imageSrc = "https://images.unsplash.com/photo-1579427421635-a0015b804b2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
+ imageSrc = "https://images.unsplash.com/photo-1579427421635-a0015b804b2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
   imageContain = false,
   imageShadow = true,
   faqs = null
 }) => {
+  const { t } = useTranslation();
   /*
    * You can modify FAQs either by modifying the below defaultFaqs array or by passing a custom array of FAQs using
    * the faqs prop
    */
+ const heading =<>{t('quest','Questions')} </>;
+const  description =<>{t('herearesomefr','Here are some frequently asked questions about our hotels from our loving customers. Should you have any other questions, feel free to reach out via the contact form below.')} </>;
+ 
   const defaultFaqs = [
     {
-      question: "Do you offer free services?",
-      answer:
-        "Yes, we do, if you have a membership with us, we randomly give a 100% discount to a client. Some limits do apply as to how much items can be included in your package. "
+      question: <>{t('question1',' Do you offer free services?')}</>,
+      answer: <>{t('answer1','Yes, we do, if you have a membership with us, we randomly give a 100% discount to a client. Some limits do apply as to how much items can be included in your package. ')} </>,
     },
     {
-      question: "Do you have a refund policy ?",
+      question: <>{t('question2','Do you have a refund policy ?')}</>,
       answer:
-        "Yes, more can be found at the terms of services page."
+        <>{t('answer2','Yes, more can be found at the terms of services page.')}</>
     },
     {
-      question: "Can I get a 2 years contract ?",
+     question: <> {t('question3','Can I get a 2 years contract ?')}</>,
       answer:
-        "The maximum contract length is 1 year but it can be customized if you need something extra."
+        <> {t('answer3','The maximum contract length is 1 year but it can be customized if you need something extra.')}</>
     },
     {
-      question: "Where can I reach you for support ?",
+      question: <> {t('question4','Where can I reach you for support ?')}</>,
       answer:
-        "For quick response, get to us via the number: 671232434334"
+        <> {t('answer4','For quick response, get to us via the number: 671232434334')}</>
     }
   ];
 

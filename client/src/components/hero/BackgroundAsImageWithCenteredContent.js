@@ -2,6 +2,7 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { Trans, useTranslation } from 'react-i18next'
 
 import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 
@@ -36,28 +37,33 @@ const Heading = styled.h1`
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 font-bold shadow transition duration-300 bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
 
 export default () => {
+  const { t } = useTranslation();
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#">
-        About
+      <NavLink href="/">
+       {t('home','Home')}
       </NavLink>
-      <NavLink href="#">
-        Blog
+      <NavLink href="/about">
+      {t('about1','About')}
+      
       </NavLink>
-      <NavLink href="#">
-        Locations
+      <NavLink href="/services">
+      {t('services1','Services')}  
       </NavLink>
-      <NavLink href="#">
-        Pricing
+      
+      <NavLink href="/contact-us">
+      {t('contact','Contact Us')}
+      </NavLink>
+      <NavLink href="/blog">
+      {t('blog','Blog')}
       </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <PrimaryLink href="/#">
-        Hire Us
+      <PrimaryLink href="/contact-us">
+      {t('hireUs','Hire Us')} 
       </PrimaryLink>
     </NavLinks>
   ];
-
   return (
     <Container>
       <OpacityOverlay />

@@ -5,6 +5,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import EmailIllustrationSrc from "images/email-illustration.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -34,16 +35,17 @@ const Textarea = styled(Input).attrs({as: "textarea"})`
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
-  subheading = "Contact Us",
-  heading = <>Feel free to <span tw="text-primary-500">get in touch</span><wbr/> with us.</>,
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  submitButtonText = "Send",
+
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
 }) => {
+  const { t , i18n} = useTranslation();
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-
+  const subheading =<>{t('contactu',"Contact Us")} </> ;
+  const heading = <>{t('feelfreeto','Feel free to')}  <span tw="text-primary-500">{t('getint','get in touch')} </span><wbr/>{t('withus3','with us')} .</>;
+ const  description = <>{t('contactusdes','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')} </>;
+ const submitButtonText = <>{t('send','Send')} </>;
   return (
     <Container>
       <TwoColumn>
@@ -56,10 +58,10 @@ export default ({
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
             <Form action={formAction} method={formMethod}>
-              <Input type="email" name="email" placeholder="Your Email Address" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="subject" placeholder="Subject" />
-              <Textarea name="message" placeholder="Your Message Here" />
+              <Input type="email" name="email" placeholder={t('youemai','Your Email Address')} />
+              <Input type="text" name="name" placeholder={t('fullname','Full Name')}  />
+              <Input type="text" name="subject" placeholder={t('subject','Subject')}  />
+              <Textarea name="message" placeholder={t('yourmessage','Your Message Here')}  />
               <SubmitButton type="submit">{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>

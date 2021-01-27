@@ -211,7 +211,7 @@ const Routes = () => {
               <Route path="/blog" component={BlogIndexPage}></Route>
               <Route path="/about" component={AboutUsPage}></Route>
               <Route path="/services" component={Portfolio}></Route>
-              <Route path="/pricing" component={PricingPage}></Route>
+              <Route path="/contact-us" component={ContactUsPage}></Route>
               <Route path="/portfolio" component={MainLandingPage}></Route>
 
 

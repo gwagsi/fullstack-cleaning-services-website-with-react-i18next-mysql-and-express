@@ -14,7 +14,7 @@ import "./assets/css/animate.css";
 Modal.setAppElement("#root");
 
 ReactDOM.render(
-  <Suspense fallback={null}>
+  <Suspense fallback="Loading...">
     <App />
   </Suspense>,
 

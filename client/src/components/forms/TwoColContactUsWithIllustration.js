@@ -5,6 +5,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import EmailIllustrationSrc from "images/email-illustration.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -31,16 +32,18 @@ const Input = tw.input`border-2 px-5 py-3 rounded focus:outline-none font-medium
 const SubmitButton = tw(PrimaryButtonBase)`inline-block lg:ml-6 mt-6 lg:mt-0`
 
 export default ({
-  subheading = "Contact Us",
-  heading = <>Feel free to <span tw="text-primary-500">get in touch</span><wbr/> with us.</>,
-  description = "Have any worries? Send us a mail and we will get back to you soonest ",
-  submitButtonText = "Contact Us",
+ 
+ 
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-
+  const { t , i18n} = useTranslation();
+ const subheading = <>{t('contactus','Contact Us')} </>;
+ const  heading = <>{t('feelfreeto','Feel free to')} <span tw="text-primary-500"> {t('getintouch','get in touch')} </span><wbr/> {t('withus1',' with us.')}</>;
+ const  description = <>{t('havenaywories','Have any worries? Send us a mail and we will get back to you soonest ')} </> ;
+ const  submitButtonText = <>{t('contactus','Contact Us')} </>;
   return (
     <Container>
       <TwoColumn>

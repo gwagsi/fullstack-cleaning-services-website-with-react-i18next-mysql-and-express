@@ -8,6 +8,7 @@ import TeamIllustrationSrc from "images/team-illustration-2.svg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
@@ -17,7 +18,7 @@ const TextColumn = styled(Column)(props => [
   tw`md:w-6/12 mt-16 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
 ]);
-
+  
 const Image = styled.img(props => [
   props.imageRounded && tw`rounded`,
   props.imageBorder && tw`border`,
@@ -60,14 +61,7 @@ const PrimaryButton = styled(PrimaryButtonBase)(props => [
 ]);
 
 export default ({
-  subheading = "Our Expertise",
-  heading = (
-    <>
-      Designed & Developed by <span tw="text-primary-500">Professionals.</span>
-    </>
-  ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  primaryButtonText = "Learn More",
+  
   primaryButtonUrl = "https://timerse.com",
   imageSrc = TeamIllustrationSrc,
   buttonRounded = true,
@@ -81,23 +75,33 @@ export default ({
   iconFilled = true,
   iconContainerCss = null
 }) => {
+  const { t } = useTranslation();
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
   /*
    * Change the features variable as you like, add or delete objects
    * `icon` must be a React SVG component. See how BriefcaseIcon is imported above. For a full list of available icons, see Feather Icons.
    */
+
+  const subheading =<> {t('ourexpertise','Our Expertise')} </> ;
+  const heading = (
+    <>
+     {t('designed','Designed & Developed by')}  <span tw="text-primary-500">{t('profession','Professionals')} .</span>
+    </>
+  );
+  const description = <>{t('descrew','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')} </>;
+  const primaryButtonText = <>{t('learnmore','Learn More')} </>;
   const defaultFeatures = [
     {
       Icon: BriefcaseIcon,
-      title: "Professionalism",
-      description: "We have the best professional marketing people across the globe just to work with you.",
+      title:<>{t('profes','Professionalism')} </> ,
+      description:<>{t('wehaveprofes','We have the best professional marketing people across the globe just to work with you.')} </>,
       iconContainerCss: tw`bg-teal-300 text-teal-800`
     },
     {
       Icon: MoneyIcon,
-      title: "Affordable",
-      description: "We promise to offer you the best rate we can - at par with the industry standard.",
+      title:<>{t('affordable','Affordable')} </>,
+      description: <>{t('wepromisetof','We promise to offer you the best rate we can - at par with the industry standard.')} </>,
       iconContainerCss: tw`bg-red-300 text-red-800`
     }
   ];

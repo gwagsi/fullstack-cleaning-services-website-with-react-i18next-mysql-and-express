@@ -10,6 +10,7 @@ import TabGrid from "components/cards/TabCardGrid.js";
 import Testimonial from "components/testimonials/ThreeColumnWithProfileImage.js";
 import DownloadApp from "components/cta/DownloadApp.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
+import { Trans, useTranslation } from 'react-i18next';
 
 import chefIconImageSrc from "images/chef-icon.svg";
 import celebrationIconImageSrc from "images/celebration-icon.svg";
@@ -18,6 +19,7 @@ import shopIconImageSrc from "images/shop-icon.svg";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 
 export default () => {
+  const { t , i18n} = useTranslation();
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   const HighlightedTextInverse = tw.span`bg-gray-100 text-primary-500 px-4 transform -skew-x-12 inline-block`;
@@ -27,11 +29,11 @@ export default () => {
     <AnimationRevealPage>
       <Hero />
       <Features
-        subheading={<Subheading>SERVICES</Subheading>}
+        subheading={<Subheading>{t('services2','SERVICES')} </Subheading>}
         heading={
           <>
-            We have Amazing
-            <HighlightedTextInverse>Services.</HighlightedTextInverse>
+            {t('wehaveamazin','We have Amazing')}
+            <HighlightedTextInverse>{t('services1','Services')}. </HighlightedTextInverse>
           </>
         }
       />
@@ -39,51 +41,47 @@ export default () => {
         heading={
           <>
             <wbr />{" "}
-            <HighlightedText>Commercial Building Cleaning.</HighlightedText>
+            <HighlightedText>{t('comercialbuilding','Commercial Building Cleaning.')} </HighlightedText>
           </>
         }
         description={
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           {t('buidlingincleaningdescrip',"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.")} 
             <br />
             <br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+           {t('buiddingcleaningdes2','Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat.')} 
           </Description>
         }
         buttonRounded={false}
         textOnLeft={false}
-        primaryButtonText="Latest Offers"
+        primaryButtonText={t('latestoffers','Latest Offers')} 
         imageSrc={
-          "https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+          "https://images.pexels.com/photos/3681787/pexels-photo-3681787.jpeg?cs=srgb&dl=pexels-becosan-3681787.jpg&fm=jpg"
         }
         imageCss={imageCss}
         imageDecoratorBlob={true}
         imageDecoratorBlobCss={tw`left-1/2 -translate-x-1/2 md:w-32 md:h-32 opacity-25`}
       />
       <MainFeature
-        subheading={<Subheading>Window Cleaning</Subheading>}
+        subheading={<Subheading>{t('windowcleaning','Window Cleaning')} </Subheading>}
         heading={
           <>
-            <wbr /> <HighlightedText>Window Cleaning.</HighlightedText>
+            <wbr /> <HighlightedText>{t('windowcleaning','Window Cleaning')}.</HighlightedText>
           </>
         }
         description={
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           {t('windowcleaningdesc1',' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')}
             <br />
             <br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+            {t('windowcleaningdes2','Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat')} .
           </Description>
         }
         buttonRounded={false}
         textOnLeft={true}
-        primaryButtonText="Latest Offers"
+        primaryButtonText={t('latestoffers','Latest Offers')} 
         imageSrc={
-          "https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+          "https://images.pexels.com/photos/634007/pexels-photo-634007.jpeg?cs=srgb&dl=pexels-nathan-cowley-634007.jpg&fm=jpg"
         }
         imageCss={imageCss}
         imageDecoratorBlob={true}
@@ -92,24 +90,22 @@ export default () => {
       <MainFeature
         heading={
           <>
-            <wbr /> <HighlightedText>Home Cleaning.</HighlightedText>
+            <wbr /> <HighlightedText>{t('homecleaning',' Home Cleaning')}.</HighlightedText>
           </>
         }
         description={
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {t('homecleaningdes1','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua')}.
             <br />
             <br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+            {t('homecleaningdes2','Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat.')}
           </Description>
         }
         buttonRounded={false}
         textOnLeft={false}
-        primaryButtonText="Latest Offers"
+        primaryButtonText={t('latestoffers','Latest Offers')} 
         imageSrc={
-          "https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+          "https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?cs=srgb&dl=pexels-vecislavas-popa-1669799.jpg&fm=jpg"
         }
         imageCss={imageCss}
         imageDecoratorBlob={true}
@@ -118,24 +114,22 @@ export default () => {
       <MainFeature
         heading={
           <>
-            <wbr /> <HighlightedText>Waste Removal</HighlightedText>
+            <wbr /> <HighlightedText>{t('wasteremoval','Waste Removal')} </HighlightedText>
           </>
         }
         description={
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           {t('wasteremovaldes1','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')} 
             <br />
             <br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+           {t('wasteremovaldes2','Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat.')} 
           </Description>
         }
         buttonRounded={false}
         textOnLeft={true}
-        primaryButtonText="Latest Offers"
+        primaryButtonText={t('latestoffers','Latest Offers')} 
         imageSrc={
-          "https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+          "https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?cs=srgb&dl=pexels-mali-maeder-802221.jpg&fm=jpg"
         }
         imageCss={imageCss}
         imageDecoratorBlob={true}
@@ -145,24 +139,22 @@ export default () => {
         heading={
           <>
            
-            <wbr /> <HighlightedText>Other Cleaning services.</HighlightedText>
+            <wbr /> <HighlightedText>{t('othercleaning','Other Cleaning services.')} </HighlightedText>
           </>
         }
         description={
           <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           {t('othercleaningdes1','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.')} 
             <br />
             <br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+           {t('othercleaniingdes2','Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat.')} 
           </Description>
         }
         buttonRounded={false}
         textOnLeft={false}
-        primaryButtonText="Latest Offers"
+        primaryButtonText={t('latestoffers','Latest Offers')} 
         imageSrc={
-          "https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+          "https://images.pexels.com/photos/4107284/pexels-photo-4107284.jpeg?cs=srgb&dl=pexels-cottonbro-4107284.jpg&fm=jpg"
         }
         imageCss={imageCss}
         imageDecoratorBlob={true}
@@ -174,7 +166,7 @@ export default () => {
         subheading=""
         heading={
           <>
-            Customers <HighlightedText>Love Us.</HighlightedText>
+           {t('customers','Customers')}  <HighlightedText>{t('loveus','Love Us.')} </HighlightedText>
           </>
         }
       />

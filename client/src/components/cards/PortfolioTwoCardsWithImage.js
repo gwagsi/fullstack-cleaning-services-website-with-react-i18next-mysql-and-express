@@ -8,6 +8,7 @@ import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { ReactComponent as LocationIcon } from "feather-icons/dist/icons/map-pin.svg";
 import { ReactComponent as TimeIcon } from "feather-icons/dist/icons/clock.svg";
 import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -57,34 +58,36 @@ const CardMetaFeature = styled.div`
 const CardAction = tw(PrimaryButtonBase)`w-full mt-6`;
 
 export default ({
-  subheading = "Our Portfolio",
-  headingHtmlComponent = (
-    <>
-      We've done some <span tw="text-primary-500">amazing projects.</span>
-    </>
-  ),
-  description = "We love to keep record of the works we do, so we can show them off to you.",
-  linkText = "View all Projects",
-  cardLinkText = "Read Case Study",
+
   textOnLeft = false
 }) => {
+  const { t } = useTranslation();
+  const subheading = <>{t('ourPort','Our Portfolio')} </>;
+  const headingHtmlComponent = 
+    <>
+     
+    </>
+  ;
+  const description = <>{t('welovetokeepreco','We love to keep record of the works we do, so we can show them off to you.')} </>;
+  const linkText = <>{t('vieallpro','View all Projects')} </>;
+ const  cardLinkText = <>{t('readcasestudy','Read Case Study')} </>;
   const cards = [
     {
       imageSrc:
         "https://images.unsplash.com/photo-1566787020536-b8bed48d2a4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      company: "Tesla Inc.",
-      type: "Company Cleanup",
-      title: "Personalized 1 year contract to clean building",
-      durationText: "1 Year",
+      company: "Pesta Inc.",
+      type:<>{t('companyclean','Company Cleanup')}</> ,
+      title:<>{t('personalised1year','Personalized 1 year contract to clean building"')} </> ,
+      durationText: <>{t('1year','1 Year')} </>,
       locationText: "New York"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=753&q=80",
       company: "Nestle",
-      type: "2000 capacity hosptal cleanup",
-      title: "Hospital Cleanup",
-      durationText: "1 year ",
+      type: <>{t('220capicty','2000 capacity hosptal cleanup')} </>,
+      title:<>{t('hospitalclean','Hospital Cleanup')} </> ,
+      durationText: <>{t('1year','1 Year')}</>,
       locationText: "Palo Alto"
     }
   ];
@@ -95,7 +98,7 @@ export default ({
           <HeadingColumn textOnLeft={textOnLeft}>
             <HeadingInfoContainer>
               <Subheading>{subheading}</Subheading>
-              <HeadingTitle>{headingHtmlComponent}</HeadingTitle>
+              <HeadingTitle>{t('wedon','We ve done some')} <span tw="text-primary-500"> {t('amazing','amazing projects')} .</span></HeadingTitle>
               <HeadingDescription>{description}</HeadingDescription>
               <PrimaryLink>
                 {linkText} <ArrowRightIcon />

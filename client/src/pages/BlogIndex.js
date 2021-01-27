@@ -20,6 +20,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { Trans, useTranslation } from 'react-i18next';
+
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900`;
@@ -62,10 +64,11 @@ const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({
-  headingText = "Blog Posts",
+  
 
 }) => {
- 
+  const { t , i18n} = useTranslation();
+ const headingText = <>{t('blogpost','Blog Posts')} </>;
 
   const context = useContext(Context);
   const [stateLocal, setState] = useState({
@@ -296,13 +299,5 @@ export default ({
   );
 };
 
-const getPlaceholderPost = () => ({
-  imageSrc:
-    "",
-  category: "Travel Guide",
-  date: "April 19, 2020",
-  title: "Visit the beautiful Alps in Switzerland",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  url: "https://reddit.com",
-});
+
+

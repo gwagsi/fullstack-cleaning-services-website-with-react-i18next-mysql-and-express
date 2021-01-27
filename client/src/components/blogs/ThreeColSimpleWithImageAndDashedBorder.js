@@ -9,6 +9,7 @@ import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -47,13 +48,14 @@ const DecoratorBlob2 = tw(
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
 
 export default ({
-  subheading = "Blog",
-  heading = <>We Love <span tw="text-primary-500">Writing.</span></>,
-  description = "Some amazing blog posts that are written by even more amazing people.",
+ 
 
 }) => {
+  const { t } = useTranslation();
 
-
+ const subheading = "Blog";
+  const heading = <>{t('welove','We Love')}  <span tw="text-primary-500">{t('writing','Writing')} .</span></>;
+ const  description = <>{t('someamzingblog','Some amazing blog posts that are written by even more amazing people.')} </>;
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     retrievePosts();

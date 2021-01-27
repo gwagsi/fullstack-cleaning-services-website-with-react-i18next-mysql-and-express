@@ -18,7 +18,7 @@ module.exports = (app) => {
 
     //Post Route
     app.get('/api/posts/:userId',postController.getAllPostsOfUser);
-    app.get('/api/post',postController.getAllPosts);
+    app.get('/api/posts',postController.getAllPosts);
 
     app.post('/api/post/create',postController.createPost);
 

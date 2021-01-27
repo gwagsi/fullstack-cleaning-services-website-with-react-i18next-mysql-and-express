@@ -10,6 +10,7 @@ import { Container, ContentWithVerticalPadding } from "components/misc/Layouts.j
 import { ReactComponent as CheckboxIcon } from "feather-icons/dist/icons/check-circle.svg";
 import { ReactComponent as QuotesLeftIconBase } from "images/quotes-l.svg"
 import { ReactComponent as SvgDecoratorBlob1 } from "images/dot-pattern.svg"
+import { Trans, useTranslation } from 'react-i18next'
 
 const Header = tw(HeaderBase)`max-w-none`;
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center lg:pt-16 max-w-screen-2xl mx-auto sm:px-8`;
@@ -52,20 +53,30 @@ export default ({
   }
 }) => {
   const buttonRoundedCss = buttonRounded && tw`rounded-full`;
+  const { t } = useTranslation();
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#">Testimonials</NavLink>
+      <NavLink href="/">
+       {t('home','Home')}
+      </NavLink>
+      <NavLink href="/about">
+      {t('about1','About')}
+      
+      </NavLink>
+      <NavLink href="/services">
+      {t('services1','Services')}  
+      </NavLink>
+      
+      <NavLink href="/contact-us">
+      {t('contact','Contact Us')}
+      </NavLink>
+      <NavLink href="/blog">
+      {t('blog','Blog')}
+      </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={buttonRoundedCss} href="/#">
-        Sign Up
+      <PrimaryLink href="/contact-us">
+      {t('hireUs','Hire Us')} 
       </PrimaryLink>
     </NavLinks>
   ];

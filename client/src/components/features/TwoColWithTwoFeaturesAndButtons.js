@@ -7,6 +7,7 @@ import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
 import TeamIllustrationSrc from "images/team-illustration-2.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -46,34 +47,37 @@ const FeatureDescription = tw.div`mt-1 text-sm`;
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
 
 export default ({
-  subheading = "Our Expertise",
-  heading = (
-    <>
-      We have the most <span tw="text-primary-500">professional</span> Cleaning Team.
-    </>
-  ),
-  description = "We work with clients across the full extent of the UK and from all sectors; schools, NHS hospitals and care homes to hotels and restaurant chains. Whether you require commercial window cleaning, deep kitchen cleaning, garden maintenance or anything else we know that you’ll be pleased by the results.",
-  primaryButtonText = "See Our Portfolio",
+ 
   primaryButtonUrl = "/portfolio",
   features = null,
   textOnLeft = true
 }) => {
+  const { t , i18n} = useTranslation();
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
   /*
    * Change the features variable as you like, add or delete objects
    * `icon` must be a React SVG component. See how BriefcaseIcon is imported above. For a full list of available icons, see Feather Icons.
    */
+
+ const subheading = <>{t('ourexp','Our Expertise')}</>;
+ const heading = (
+    <>
+   {t('wehaveth',' We have the most')}   <span tw="text-primary-500">{t('professional','professional')} </span>{t('cleaninteam','Cleaning Team')} .
+    </>
+  );
+ const description =<>{t('weworkwith','We work with clients across the full extent of the UK and from all sectors; schools, NHS hospitals and care homes to hotels and restaurant chains. Whether you require commercial window cleaning, deep kitchen cleaning, garden maintenance or anything else we know that you’ll be pleased by the results.')} </> ;
+ const primaryButtonText =<>{t('seeourport','See Our Portfolio')} </> ;
   const defaultFeatures = [
     {
       Icon: BriefcaseIcon,
-      title: "Professionalism",
-      description: "We have the best professional cleaning people  just to work with you."
+      title:<>{t('profess','Professionalism')} </> ,
+      description:<>{t('ourprose','We have the best professional cleaning people  just to work with you.')} </>
     },
     {
       Icon: MoneyIcon,
-      title: "Affordable",
-      description: "We promise to offer you the best rate we can - at par with the industry standard."
+      title:<>{t('afford','Affordable')} </> ,
+      description:<>{t('wepromise','We promise to offer you the best rate we can - at par with the industry standard.')} </>
     }
   ];
 

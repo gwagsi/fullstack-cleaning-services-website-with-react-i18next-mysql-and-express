@@ -62,19 +62,19 @@ export default () => {
    *  3) description - the description of the card
    *  If a key for a particular card is not provided, a default value is used
    */
-
+ const { t } = useTranslation();
   const cards = [
-    { imageSrc: WindowIconImage, title: "Window Cleaning" },
-    { imageSrc: CustomizeIconImage, title: "Carpet Cleaning" },
-    { imageSrc: FloorIconImage, title: "Hard Floor Cleaning" },
-    { imageSrc: FastIconImage, title: "General Cleaning" },
-    { imageSrc: SimpleIconImage, title: "Contract Cleaning" },
+    { imageSrc: WindowIconImage, title: <>{t('windowcl','Window Cleaning')}</> },
+    { imageSrc: CustomizeIconImage, title: <>{t('carpetcle','Carpet Cleaning')} </> },
+    { imageSrc: FloorIconImage, title: <>{t('floorcleanin','Hard Floor Cleaning')} </> },
+    { imageSrc: FastIconImage, title: <>{t('generalcleanin','General Cleaning')} </> },
+    { imageSrc: SimpleIconImage, title: <>{t('contractclean','Contract Cleaning')} </> },
     {
       imageSrc: ShieldIconImage,
-      title: "Others",
+      title: <>{t('others','Others')} </>,
     },
   ];
-  const { t } = useTranslation();
+ 
 
   return (
     <Container>

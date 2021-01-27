@@ -2,6 +2,7 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { Trans, useTranslation } from 'react-i18next'
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
@@ -54,30 +55,30 @@ const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
 `;
 
 export default () => {
+  const { t } = useTranslation();
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/">
-        Home
+       {t('home','Home')}
       </NavLink>
       <NavLink href="/about">
-        About
+      {t('about1','About')}
+      
       </NavLink>
       <NavLink href="/services">
-        Services
+      {t('services1','Services')}  
       </NavLink>
-      <NavLink href="/portfolio">
-        Portfolio
-      </NavLink>
-      <NavLink href="/pricing">
-        Pricing
+      
+      <NavLink href="/contact-us">
+      {t('contact','Contact Us')}
       </NavLink>
       <NavLink href="/blog">
-       Blog
+      {t('blog','Blog')}
       </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <PrimaryLink href="/contact">
-        Hire Us
+      <PrimaryLink href="/contact-us">
+      {t('hireUs','Hire Us')} 
       </PrimaryLink>
     </NavLinks>
   ];

@@ -8,6 +8,7 @@ import LogoImage from "images/logo.svg";
 import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = tw.div`relative bg-gray-200 text-gray-700 -mb-8 -mx-8 px-8 py-20 lg:py-24`;
 const Content = tw.div`max-w-screen-xl mx-auto relative z-10`;
@@ -47,87 +48,88 @@ const SocialLink = styled.a`
 `;
 
 export default () => {
+  const { t , i18n} = useTranslation();
   return (
     <Container>
       <Content>
         <SixColumns>
           <Column>
-            <ColumnHeading>Main</ColumnHeading>
+            <ColumnHeading>{t('Main','Main')} </ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="/blog">Blog</Link>
+                <Link href="/blog"> {t('Blog','Blog')}</Link>
               </LinkListItem>
               <LinkListItem>
                 <Link href="/fags">FAQs</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="/services">Services</Link>
+                <Link href="/services">{t('Services','Services')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="/about">About Us</Link>
-              </LinkListItem>
-            </LinkList>
-          </Column>
-          <Column>
-            <ColumnHeading>Business</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="/login">Log In</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="/contact">Personal</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="/portfolio">Business</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="/blog">Blog</Link>
+                <Link href="/about">{t('about','About Us')}</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Press</ColumnHeading>
+            <ColumnHeading>{t('Business','Business')}</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="/testimonials">Testimonials</Link>
+                <Link href="/login">{t('login','Log In')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="/pricing">Pricing</Link>
+                <Link href="/contact">{t('Personal','Personal')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="/blog">Blog</Link>
+                <Link href="/portfolio">{t('Business','Business')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="/about">About Us</Link>
+                <Link href="/blog">{t('Blog','Blog')}</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Legal</ColumnHeading>
+            <ColumnHeading>{t('Press','Press')}</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="/faqs">FAQs</Link>
+                <Link href="/testimonials">{t('Testimonials','Testimonials')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Privacy Policy</Link>
+                <Link href="/pricing">{t('Pricing','Pricing')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Terms of Service</Link>
+                <Link href="/blog">{t('Blog','Blog')}</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Disclaimer</Link>
+                <Link href="/about">{t('about','About Us')}</Link>
+              </LinkListItem>
+            </LinkList>
+          </Column>
+          <Column>
+            <ColumnHeading>{t('Legal','Legal')}</ColumnHeading>
+            <LinkList>
+              <LinkListItem>
+                <Link href="/faqs">{t('FAQs','FAQs')}</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">{t('privacypolicy','Privacy Policy')}</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">{t('termsofservice','Terms of Service')}</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">{t('Disclaimer','Disclaimer')}</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <SubscribeNewsletterColumn>
             <SubscribeNewsletterContainer>
-              <ColumnHeading>Subscribe to our Newsletter</ColumnHeading>
+              <ColumnHeading>{t('sunscribetonews','Subscribe to our Newsletter')}</ColumnHeading>
               <SubscribeText>
-                We deliver high quality blog posts written by professionals weekly. And we promise no spam.
+              {t('wedeliver','We deliver high quality blog posts written by professionals weekly. And we promise no spam.')} 
               </SubscribeText>
               <SubscribeForm method="get" action="#">
                 <Input type="email" placeholder="Your Email Address" />
-                <SubscribeButton type="submit">Subscribe</SubscribeButton>
+                <SubscribeButton type="submit">{t('subscribe','Subscribe')}</SubscribeButton>
               </SubscribeForm>
             </SubscribeNewsletterContainer>
           </SubscribeNewsletterColumn>
@@ -138,7 +140,7 @@ export default () => {
             <LogoImg src={LogoImage} />
             <LogoText>SALDEMY.</LogoText>
           </LogoContainer>
-          <CopywrightNotice>&copy; 2020 SALDEMY. All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>&copy; 2020 SALDEMY.{t('allrightreserved','All Rights Reserved')} .</CopywrightNotice>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
               <FacebookIcon />

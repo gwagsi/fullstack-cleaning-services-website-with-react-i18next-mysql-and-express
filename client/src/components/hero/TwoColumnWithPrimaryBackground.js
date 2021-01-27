@@ -13,6 +13,7 @@ import { SectionDescription } from "components/misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import logoImageSrc from "images/logo-light.svg";
 import serverIllustrationImageSrc from "images/server-illustration-2.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const PrimaryBackgroundContainer = tw.div`-mx-8 px-8 bg-primary-900 text-gray-100`;
 const Header = tw(HeaderBase)`max-w-none -mt-8 py-8 -mx-8 px-8`;
@@ -43,12 +44,31 @@ export default ({
       SALDEMY
     </LogoLink>
   );
+  const { t } = useTranslation();
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#">Features</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#">Login</NavLink>
-      <PrimaryLink href="#">Signup</PrimaryLink>
+      <NavLink href="/">
+       {t('home','Home')}
+      </NavLink>
+      <NavLink href="/about">
+      {t('about1','About')}
+      
+      </NavLink>
+      <NavLink href="/services">
+      {t('services1','Services')}  
+      </NavLink>
+      
+      <NavLink href="/contact-us">
+      {t('contact','Contact Us')}
+      </NavLink>
+      <NavLink href="/blog">
+      {t('blog','Blog')}
+      </NavLink>
+    </NavLinks>,
+    <NavLinks key={2}>
+      <PrimaryLink href="/contact-us">
+      {t('hireUs','Hire Us')} 
+      </PrimaryLink>
     </NavLinks>
   ];
   return (

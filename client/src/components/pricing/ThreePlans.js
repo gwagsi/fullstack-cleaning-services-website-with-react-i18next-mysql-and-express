@@ -7,6 +7,7 @@ import { SectionDescription } from "components/misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
+import { Trans, useTranslation } from 'react-i18next';
 
 const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
 const Subheading = tw(SubheadingBase)`mb-4`;
@@ -89,6 +90,7 @@ export default ({
   plans = null,
   primaryButtonText = "Buy Now"
 }) => {
+  const { t , i18n} = useTranslation();
   const defaultPlans = [
     {
       name: "Personal",

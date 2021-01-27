@@ -10,6 +10,7 @@ import SupportIconImage from "images/support-icon.svg";
 import ShieldIconImage from "images/shield-icon.svg";
 import CustomizeIconImage from "images/customize-icon.svg";
 import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const Heading = tw(SectionHeading)``;
 const Subheading = tw(SubheadingBase)`text-center mb-3`;
@@ -51,33 +52,14 @@ const DecoratorBlob = styled(SvgDecoratorBlob3)`
 `;
 
 export default ({
-  cards = [
-    {
-      imageSrc: ShieldIconImage,
-      title: "Secure",
-      description: "We strictly only deal with vendors that provide top notch security.",
-      url: "https://timerse.com"
-    },
-    {
-      imageSrc: SupportIconImage,
-      title: "24/7 Support",
-      description: "Lorem ipsum donor amet siti ceali placeholder text",
-      url: "https://google.com"
-    },
-    {
-      imageSrc: CustomizeIconImage,
-      title: "Customizable",
-      description: "Lorem ipsum donor amet siti ceali placeholder text",
-      url: "https://reddit.com"
-    }
-  ],
-  linkText = "Learn More",
+  
   heading = "",
   subheading = "",
   description = "",
   imageContainerCss = null,
   imageCss = null
 }) => {
+  const { t } = useTranslation();
   /*
    * This componets accepts a prop - `cards` which is an array of object denoting the cards. Each object in the cards array can have the following keys (Change it according to your need, you can also add more objects to have more cards in this feature component):
    *  1) imageSrc - the image shown at the top of the card
@@ -85,6 +67,28 @@ export default ({
    *  3) description - the description of the card
    *  4) url - the url that the card should goto on click
    */
+
+ const cards = [
+    {
+      imageSrc: ShieldIconImage,
+      title:<>{t('secure','Secure')} </>,
+      description:<>{t('westritcly','We strictly only deal with vendors that provide top notch security.')} </>,
+      url: "https://timerse.com"
+    },
+    {
+      imageSrc: SupportIconImage,
+      title:<>{t('24/7support','24/7 Support')} </> ,
+      description:<>{t('loremopos','Lorem ipsum donor amet siti ceali placeholder text')} </> ,
+      url: "https://google.com"
+    },
+    {
+      imageSrc: CustomizeIconImage,
+      title: <>{t('custom','Customizable')} </>,
+      description: <>{t('loremopos','Lorem ipsum donor amet siti ceali placeholder text')} </> ,
+      url: "https://reddit.com"
+    }
+  ];
+  const linkText = <>{t('learnm','Learn More',)} </>;
   return (
     <Container>
       <ContentWithPaddingXl>

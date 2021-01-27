@@ -8,6 +8,7 @@ import {SectionDescription} from "components/misc/Typography";
 import { ReactComponent as TwitterIcon} from "images/twitter-icon.svg";
 import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+import { Trans, useTranslation } from 'react-i18next'
 
 const HeadingContainer = tw.div``
 const Heading = tw(SectionHeading)``
@@ -40,14 +41,15 @@ const CardLinks = styled.div`
   }
 `
 
-export default ({
-  heading = "Meet These Fine Folks.",
-  subheading = "Our Team",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+export default () => {
+  const { t , i18n} = useTranslation();
+   const heading =<>{t('meetthesefolks','Meet These Fine Folks.')} </>,
+  subheading =<>{t('ourteam','Our Team')} </> ,
+   description =<>{t('meetourteamdescription','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')}</> ,
   cards = [
     {
       imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Founder",
+      position:<>{t('founder','Founder')} </>,
       name: "Adam Cuppy",
       links: [
         {
@@ -66,7 +68,7 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Project Director",
+      position: <>{t('projectdirec','Project Director')} </>,
       name: "Charlotte Hale",
       links: [
         {
@@ -85,7 +87,7 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Customer Relation",
+      position:<>{t('customerreala','Customer Relation')} </> ,
       name: "Silvester Wize",
       links: [
         {
@@ -104,7 +106,7 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Lead Cleaner",
+      position: <>{t('leadcleaner','Lead Cleaner')} </>,
       name: "Himali Turn",
       links: [
         {
@@ -123,7 +125,7 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Cleaner",
+      position: <>{t('Cleaner','Cleaner')} </>,
       name: "Troye Sivan",
       links: [
         {
@@ -142,7 +144,7 @@ export default ({
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Quality Assurance",
+      position:<> {t('qualityassurance','Quality Assurance')} </>,
       name: "Holo Wo",
       links: [
         {
@@ -160,7 +162,6 @@ export default ({
       ],
     },
   ]
-}) => {
   return (
     <Container>
       <ContentWithPaddingXl>
