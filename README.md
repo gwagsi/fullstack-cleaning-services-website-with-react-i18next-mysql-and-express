@@ -40,7 +40,7 @@ For the Reviews:
 name	email	content	rating	id
 
 For the News Letter:
-id	name	email
+id	name	 email
 
 For the Contact Form:
 Id 	name	email	subject	message	submitted
